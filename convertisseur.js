@@ -26,8 +26,8 @@ btnSave.addEventListener('click', function(){
 
 
   function displayConvertion(){
-   birrFdj = new Number(centBirrFdjInput.value)/100;
-   euroFdj = new Number(unEuroFdj.value);
+   birrFdj = Number(centBirrFdjInput.value)/100;
+   euroFdj = Number(unEuroFdj.value);
    euroBirr = euroFdj/birrFdj;
    fdjEuro = 1/euroFdj;
    birrEuro = 1/euroBirr;
@@ -77,11 +77,12 @@ function convertir(montant,de,a){
 }
 
 convertirBtn.addEventListener('click', function(){
-    let montant =  new Number(montantInput.value);
+    let montant =  Number(montantInput.value);
     let de = deSelect.value;
     let a = aSelect.value;
     let newMontant = convertir(montant,de,a);
+    let newMontantRound = Math.round(newMontant*100)/100;
 
-    resultatSpan.textContent = montant + " " + de + " = " + newMontant+ " " + a;
+    resultatSpan.textContent = montant + " " + de + " = " + newMontantRound+ " " + a;
 
 });
